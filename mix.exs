@@ -28,6 +28,11 @@ defmodule AcceptanceTestSpeed.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:wallaby, "~> 0.16"},
+      {:benchee, "~> 0.6"},
+      {:hound, "~> 1.0"},
+      {:benchee_html, "~> 0.1"}
+    ]
   end
 end

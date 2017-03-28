@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Forms</title>
+  </head>
+  <body>
+    <h1>Forms</h1>
+    <form class="form" action="index.html" method="post">
+      <label for="name_field">Name</label>
+      <input id="name_field" type="text" name="name" value="">
+      <input id="email_field" type="email" name="email" value="">
+      <input id="password_field" type="password" name="password" value="">
+
+      <label for="file_field">File</label>
+      <input id="file_field" type="file" name="file_input">
+
+      <label>
+        <input type="checkbox" id="checkbox1" value="" name="testbox">
+        Checkbox 1
+      </label>
+
+      <label for="inner-checkbox">
+        <input type="checkbox" id="inner-checkbox" value="second-checkbox">
+      </label>
+
+      <label for="inner-radio">
+        <input type="radio" id="option1" name="optionsRadios" value="option1">
+        Option 1
+      </label>
+
+      <input id="option2" type="radio" name="optionsRadios" value="option2">
+
+      <textarea name="text" rows="8" cols="40"></textarea>
+
+      <label for='my-select'>My Select</label>
+      <select name='my-select'>
+        <option id='select-option-1'>Select Option 1</option>
+        <option id='select-option-2'>Select Option 2</option>
+        <option id='select-option-3'>Select Option 3</option>
+      </select>
+
+
+      <button id="button-no-type-id" name="button-no-type">button with no type</button>
+      <button type="submit" id="button-submit-id" name="button-submit">Submit button</button>
+      <button type="button" id="button-button-id" name="button-button" onclick="document.getElementById('name_field').value = '';">Button button</button>
+      <button type="reset" id="button-reset-id" name="button-reset">Reset button</button>
+      <input type="submit" id="input-submit-id" name="input-submit" value="Submit input">
+      <input type="button" id="input-button-id" name="input-button" onclick="document.getElementById('name_field').value = '';" value="Button input">
+      <input type="reset" id="input-reset-id" name="input-reset" value="Reset input">
+      <input type="image" id="input-image-id" name="input-image" src="../images/button-image.png">
+    </form>
+
+    <form class="bad-form" action="index.html" method="post">
+      <div class="form-group">
+        <label>Input with bad label</label>
+        <input class="form-control" id="bad_label_input" name="user[name]" type="text">
+      </div>
+      <div class="form-group">
+        <label for="input-with-bad-id">Input with bad id</label>
+        <input type="text" name="input-with-bad-id-name">
+      </div>
+      <div class="form-group">
+        <label>Radio with bad label</label>
+        <input type="radio" name="radio" value="1">
+      </div>
+      <div class="form-group">
+        <label>Checkbox with bad label</label>
+        <input type="checkbox" name="checkbox">
+      </div>
+      <div class="form-group">
+        <label>File field with bad label</label>
+        <input type="file" name="unlabelled-file">
+      </div>
+      <button type="other">button with bad type</button>
+      <input name="input-no-type">
+
+      <button id="invisible-button" style="display: none;">
+        Invisible Button
+      </button>
+    </form>
+
+    <form class="wait-form" action="index.html" method="post">
+      <div class="js-hidden" style="display: none;">
+        <div class="form-group">
+          <label for="hidden-text-field-id">Hidden Text Field</label>
+          <input id="hidden-text-field-id" type="text" name="hidden-text-field-name">
+        </div>
+        <div class="form-group">
+          <label for="hidden-select-name">Hidden Select</label>
+          <select id="hidden-select-id" name="hidden-select-name">
+            <option>Option</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="hidden-radio">Hidden Radio Button</label>
+          <input id="hidden-radio" type="radio" name="hidden-radio" value="1">
+        </div>
+        <div class="form-group">
+          <label for="hidden-checkbox">Hidden Checkbox</label>
+          <input type="checkbox" name="hidden-checkbox" id="hidden-checkbox">
+        </div>
+        <div class="form-group">
+          <button type="button" name="button">Hidden Button</button>
+        </div>
+      </div>
+    </form>
+
+    <form class="escape-characters">
+      <label for="escape_name_field">I'm a text field</label>
+      <input id="escape_name_field" type="text" name="escape_name" value="">
+
+      <label for="escape_file">I'm a file field</label>
+      <input id="escape_file" type="file" name="escape_file">
+
+      <label>
+        <input type="checkbox" id="escape-checkbox" value="" name="escapebox">
+        I'm a checkbox
+      </label>
+
+      <label>
+        <input type="radio" id="escape-radio" name="escaperadio" value="escape-option-1">
+        I'm a radio button
+      </label>
+
+      <button type="button" name="button">I'm a button</button>
+    </form>
+
+    <script>
+      setTimeout(function() {
+        document.querySelector('.js-hidden').style.display = 'block'
+      }, 300)
+    </script>
+  </body>
+</html>
