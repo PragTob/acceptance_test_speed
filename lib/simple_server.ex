@@ -2,7 +2,7 @@
 # https://github.com/keathley/wallaby/blob/master/test/support/test_server.ex
 # MIT licensed
 defmodule SimpleServer do
-  @config [ port: 0,
+  @config [ port: 8765,
             server_root:   String.to_char_list(Path.absname("./", __DIR__)),
             document_root: String.to_char_list(Path.absname("./pages", __DIR__)),
             server_name:   'simple_test',
