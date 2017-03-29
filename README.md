@@ -1,19 +1,33 @@
-# AcceptanceTestSpeed
+# Acceptance Test Speed
 
-**TODO: Add description**
+A benchmark showing how fast certain operations are with different Acceptance/Feature/Ende2End/"whatever you call them" libraries.
+
+All of them use phantomjs, to be fair of course :)
+
+More specific:
+
+* [capybara](https://github.com/teamcapybara/capybara) with [poltergeist](https://github.com/teampoltergeist/poltergeist) (ruby)
+* [wallaby](https://github.com/keathley/wallaby) (elixir)
+* [hound](https://github.com/HashNuke/hound) (elixir) - benchmark not yet working due to an issue with session management
+
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `acceptance_test_speed` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [{:acceptance_test_speed, "~> 0.1.0"}]
-end
+```
+npm install -g phantomjs-prebuilt
+mix deps.get
+bundle install
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/acceptance_test_speed](https://hexdocs.pm/acceptance_test_speed).
+## Running
 
+Benchmarks are located in in `benchmarks`
+
+```
+mix run benchmarks/wallaby.exs
+```
+
+```
+mix run --no-halt server_start.exs # same server running for fairness
+ruby benchmarks/capybara.rb
+```

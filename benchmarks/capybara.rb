@@ -1,3 +1,6 @@
+# make sure to `mix run --no-halt server_start.exs` before so it has a server
+# to run against.
+
 require 'capybara'
 require 'capybara/dsl'
 require 'capybara/poltergeist'
