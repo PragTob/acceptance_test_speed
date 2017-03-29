@@ -50,3 +50,17 @@ Benchmark.ips do |bm|
 
   bm.compare!
 end
+
+# Warming up --------------------------------------
+#   fill_in text field    23.000  i/100ms
+#          visit forms     1.000  i/100ms
+#       find by css id    94.000  i/100ms
+# Calculating -------------------------------------
+#   fill_in text field    239.736  (± 8.8%) i/s -      4.301k in  18.085690s
+#          visit forms      9.622  (± 0.0%) i/s -    174.000  in  18.086288s
+#       find by css id    981.868  (±14.4%) i/s -     17.296k in  18.065214s
+#
+# Comparison:
+#       find by css id:      981.9 i/s
+#   fill_in text field:      239.7 i/s - 4.10x  slower
+#          visit forms:        9.6 i/s - 102.04x  slower
