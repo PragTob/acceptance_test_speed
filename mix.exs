@@ -30,8 +30,9 @@ defmodule AcceptanceTestSpeed.Mixfile do
   defp deps do
     [
       {:wallaby, "~> 0.19.1"},
-      {:benchee, "~> 0.6", github: "PragTob/benchee"},
-      {:hound, "~> 1.0"}
+      {:benchee, "~> 0.6", github: "PragTob/benchee", branch: "master"},
+      {:hound, "~> 1.0"},
+      {:benchee_html, "~> 0.3", github: "PragTob/benchee_html"}
     ]
   end
 end

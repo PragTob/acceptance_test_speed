@@ -8,17 +8,6 @@ Application.put_env(:hound, :app_port, SimpleServer.port(server))
 
 use Hound.Helpers
 
-Hound.start_session()
-
-navigate_to server.base_url
-navigate_to("#{server.base_url}/forms.html")
-IO.puts "name lookup"
-take_screenshot()
-fill_field({:name, "user[name]"}, "Chris")
-
-IO.inspect page_title()
-
-
 # Hound seems to identify sessions via PID and there is no way to pass in the
 # session or whatever... so that's another use case for benchees before/after
 # to prepare a session for the benchmark (benchs run in their own processes)
@@ -35,9 +24,15 @@ Benchee.run(%{
 },
 time: 18,
 formatters: [
-  &Benchee.Formatters.HTML.output/1,
-  &Benchee.Formatters.Console.output/1
+  Benchee.Formatters.HTML,
+  Benchee.Formatters.Console
 ],
-html: [file: "benchmarks/html/hound.html"])
-
-Hound.end_session
+html: [file: "benchmarks/html/hound.html"],
+before_scenario: fn(input) ->
+  Hound.start_session()
+  navigate_to("#{server.base_url}/forms.html")
+  input
+end,
+after_scenario: fn(_return) ->
+  Hound.end_session
+end)
