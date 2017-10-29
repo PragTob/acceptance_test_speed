@@ -58,16 +58,17 @@ Benchmark.ips do |bm|
   bm.compare!
 end
 
+# tobi@speedy ~/github/acceptance_test_speed $ ruby benchmarks/capybara.rb 
 # Warming up --------------------------------------
-#   fill_in text field    23.000  i/100ms
+#   fill_in text field    31.000  i/100ms
 #          visit forms     1.000  i/100ms
-#       find by css id    94.000  i/100ms
+#       find by css id   126.000  i/100ms
 # Calculating -------------------------------------
-#   fill_in text field    239.736  (± 8.8%) i/s -      4.301k in  18.085690s
-#          visit forms      9.622  (± 0.0%) i/s -    174.000  in  18.086288s
-#       find by css id    981.868  (±14.4%) i/s -     17.296k in  18.065214s
+#   fill_in text field    314.732  (± 5.4%) i/s -      5.673k in  18.076096s
+#          visit forms      9.819  (± 0.0%) i/s -    177.000  in  18.029034s
+#       find by css id      1.265k (± 5.4%) i/s -     22.806k in  18.086122s
 #
 # Comparison:
-#       find by css id:      981.9 i/s
-#   fill_in text field:      239.7 i/s - 4.10x  slower
-#          visit forms:        9.6 i/s - 102.04x  slower
+#       find by css id:     1264.7 i/s
+#   fill_in text field:      314.7 i/s - 4.02x  slower
+#          visit forms:        9.8 i/s - 128.81x  slower
