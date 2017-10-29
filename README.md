@@ -57,24 +57,55 @@ Comparison:
 ### Elixir (Hound and Wallaby)
 
 ```
-Erlang/OTP 19 [erts-8.2] [source] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
-Elixir 1.4.2
+tobi@speedy ~/github/acceptance_test_speed $ mix run benchmarks/elixir.exs
+Compiling 1 file (.ex)
+warning: String.to_char_list/1 is deprecated, use String.to_charlist/1
+  lib/simple_server.ex:6
+
+warning: String.to_char_list/1 is deprecated, use String.to_charlist/1
+  lib/simple_server.ex:7
+
+Generated acceptance_test_speed app
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+Number of Available Cores: 8
+Available memory: 15.61 GB
+Elixir 1.5.2
+Erlang 20.0
 Benchmark suite executing with the following configuration:
-warmup: 2.0s
-time: 18.0s
+warmup: 2 s
+time: 18 s
 parallel: 1
-inputs: none specified
-Estimated total run time: 60.0s
-Benchmarking fill_in text_field...
-Benchmarking find by css #id...
-Benchmarking visit forms...
-Generated benchmarks/html/wallaby.html
-Name                         ips        average  deviation         median
-visit forms                 7.91      126.43 ms    ±32.60%      104.05 ms
-find by css #id             5.29      188.87 ms     ±3.34%      188.06 ms
-fill_in text_field          2.53      394.60 ms     ±2.47%      396.18 ms
+inputs: filling a form field, find css by id, visit url
+Estimated total run time: 6 min
+
+
+# ...
+
+##### With input filling a form field #####
+Name              ips        average  deviation         median         99th %
+hound            7.28      137.30 ms     ±1.62%      136.02 ms      144.03 ms
+wallaby          2.79      358.74 ms     ±1.13%      356.10 ms      376.06 ms
+
 Comparison:
-visit forms                 7.91
-find by css #id             5.29 - 1.49x slower
-fill_in text_field          2.53 - 3.12x slower
+hound            7.28
+wallaby          2.79 - 2.61x slower
+
+##### With input find css by id #####
+Name              ips        average  deviation         median         99th %
+hound           22.63       44.18 ms     ±1.95%       44.00 ms       48.01 ms
+wallaby          5.66      176.66 ms     ±1.04%      176.00 ms      187.55 ms
+
+Comparison:
+hound           22.63
+wallaby          5.66 - 4.00x slower
+
+##### With input visit url #####
+Name              ips        average  deviation         median         99th %
+hound           19.02       52.59 ms     ±2.69%       52.01 ms       56.06 ms
+wallaby         10.35       96.66 ms     ±1.65%       96.00 ms      103.97 ms
+
+Comparison:
+hound           19.02
+wallaby         10.35 - 1.84x slower
 ```
