@@ -6,6 +6,10 @@ require 'capybara/dsl'
 require 'capybara/poltergeist'
 require 'benchmark/ips'
 
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, phantomjs: "/home/tobi/github/acceptance_test_speed/node_modules/.bin/phantomjs")
+end
+
 Capybara.run_server = false
 Capybara.current_driver = :poltergeist
 Capybara.app_host = "http://localhost:8765"

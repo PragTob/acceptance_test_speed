@@ -30,3 +30,4 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :hound, driver: "phantomjs"
+config :wallaby, phantomjs: "./node_modules/.bin/phantomjs"
